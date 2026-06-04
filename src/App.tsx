@@ -176,7 +176,7 @@ const App = () => {
 
                   {/* Vectors Animation Container */}
                   <div className="flex gap-6 overflow-x-auto py-4 snap-x">
-                    {result.steps.map((step, idx) => {
+                    {(result as any).steps.map((step: number[], idx: number) => {
                       // Extract the corresponding text slice
                       const rawText = text.toUpperCase().replace(/[^A-Z]/g, "");
                       // If padding is needed
@@ -240,12 +240,12 @@ const App = () => {
             <div className="w-full bg-dark-navy/80 min-h-[8rem] text-white p-6 rounded-xl border border-gray-700 font-mono text-2xl uppercase tracking-[0.2em] break-all leading-relaxed shadow-inner">
               {isValid && result ? (
                 <motion.div
-                  key={result[mode === 'encrypt' ? 'ciphertext' : 'plaintext']}
+                  key={(result as any)[mode === 'encrypt' ? 'ciphertext' : 'plaintext']}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   className={mode === 'encrypt' ? 'text-neon-magenta' : 'text-neon-blue'}
                 >
-                  {result[mode === 'encrypt' ? 'ciphertext' : 'plaintext']}
+                  {(result as any)[mode === 'encrypt' ? 'ciphertext' : 'plaintext']}
                 </motion.div>
               ) : (
                 <span className="text-gray-600">...</span>
