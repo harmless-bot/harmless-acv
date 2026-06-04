@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", "Inter", sans-serif;
+  --color-neon-blue: #0ff;
+  --color-neon-magenta: #f0f;
+  --color-neon-purple: #9d00ff;
+  --color-dark-navy: #0a0a1a;
+  --color-charcoal: #111122;
+}
+
+@layer base {
+  body {
+    @apply bg-dark-navy text-white antialiased font-sans;
+    background-image: radial-gradient(circle at 50% 0%, #1a1a3a 0%, #0a0a1a 100%);
+    min-height: 100vh;
+  }
+}
